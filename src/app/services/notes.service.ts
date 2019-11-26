@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class NotesService {
 
-  private notes: Note[];
+  private notes: Array<Note>;
 
   constructor() { }
 
