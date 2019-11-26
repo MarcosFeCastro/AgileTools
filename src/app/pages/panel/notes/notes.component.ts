@@ -14,7 +14,7 @@ export class NotesComponent implements OnInit {
   noteForm: FormGroup;
   submitted: boolean = false;
 
-  notes: Note[];
+  notes: Array<Note>;
 
   notecard: string = 'notecard-white';
 
