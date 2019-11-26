@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectService {
 
-  private projects: Project[];
+  private projects: Array<Project>;
   private currentProject: Project;
 
   constructor() { }

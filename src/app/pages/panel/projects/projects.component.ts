@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit {
   projectForm: FormGroup;
   submitted: boolean = false;
 
-  projects: Project[];
+  projects: Array<Project>;
 
   constructor( private formBuilder: FormBuilder, private projectService: ProjectService, private router: Router ) { }
 
