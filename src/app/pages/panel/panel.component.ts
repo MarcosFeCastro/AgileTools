@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { LocalUser } from './../../models/local_user';
-import { AuthService } from 'src/app/services/auth.service';
+import { Auth } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-panel',
@@ -10,12 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PanelComponent implements OnInit {
 
-  name: LocalUser = null;
+  name: LocalUser;
 
-  constructor( private authService: AuthService ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.name = this.authService.getLocalUser();
+    this.name = Auth.getLocalUser();
   }
 
   save(){

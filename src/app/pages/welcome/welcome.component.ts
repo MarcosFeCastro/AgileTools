@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { Auth } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -13,10 +13,10 @@ export class WelcomeComponent implements OnInit {
   form: FormGroup;
   submitted: boolean = false;
 
-  constructor( private formBuilder: FormBuilder, private authService: AuthService, private router: Router ) { }
+  constructor( private formBuilder: FormBuilder, private router: Router ) { }
 
   ngOnInit() {
-    if ( this.authService.getLocalUser ) {
+    if ( Auth.getLocalUser ) {
       this.router.navigate(['home']);
     }
     this.form = this.formBuilder.group({
@@ -32,7 +32,7 @@ export class WelcomeComponent implements OnInit {
     this.submitted = true;
     if ( this.form.valid ) {
       try {
-        this.authService.setLocalUser( this.form.value['name'] );
+        Auth.setLocalUser( this.form.value['name'] );
       } catch (error) {
         console.log(error);
       } finally {

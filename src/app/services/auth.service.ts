@@ -6,11 +6,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class Auth {
 
-  constructor() { }
+  private constructor() { }
 
-  getLocalUser() : LocalUser {
+  static getLocalUser() : LocalUser {
     let user = localStorage.getItem( environment.localUser );
     if( user == null ) {
       return null;
@@ -19,7 +19,7 @@ export class AuthService {
     }
   }
 
-  setLocalUser( obj: LocalUser ) {
+  static setLocalUser( obj: LocalUser ) {
     if( obj == null ) {
       localStorage.removeItem( environment.localUser );
     } else {
